@@ -1,13 +1,8 @@
 <template>
-  <div id="ol-map"></div>
+  <div ref="map-root"
+       style="width: 100%; height: 100%">
+  </div>
 </template>
-
-<style>
-  #ol-map {
-    width: 100%;
-    height: 100%;
-  }
-</style>
 
 <script>
   import View from 'ol/View'
@@ -39,7 +34,7 @@
       })
 
       this.olMap = new Map({
-        target: 'ol-map',
+        target: this.$refs['map-root'],
         layers: [
           new TileLayer({
             source: new OSM(),
